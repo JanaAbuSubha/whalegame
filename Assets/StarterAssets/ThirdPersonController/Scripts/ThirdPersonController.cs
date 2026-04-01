@@ -264,6 +264,11 @@ namespace StarterAssets
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
+                if (inputDirection.x < 0)
+                {rotation = ClampAngle(rotation, 220, 300);}
+                else{
+                    rotation = ClampAngle(rotation, 45, 115);
+                }
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
