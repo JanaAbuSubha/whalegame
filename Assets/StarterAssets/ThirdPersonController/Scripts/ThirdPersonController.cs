@@ -297,25 +297,24 @@ namespace StarterAssets
 
         private void JumpAndGravity()
         {
-            if (Grounded)
-            {
+            
 
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity = -Mathf.Sqrt(JumpHeight);
+                    _verticalVelocity += -Mathf.Sqrt(JumpHeight);
 
                     // update animator if using character
                 }
 
-                // jump timeout
+                //jump timeout
                 if (_jumpTimeoutDelta >= 0.0f)
                 {
                     _jumpTimeoutDelta -= Time.deltaTime;
                 }
-            }
             
-                _input.jump = false;
+            
+                //_input.jump = false;
 
         }
 
