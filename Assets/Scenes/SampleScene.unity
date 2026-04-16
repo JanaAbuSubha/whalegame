@@ -652,6 +652,7 @@ GameObject:
   - component: {fileID: 467396824}
   - component: {fileID: 467396826}
   - component: {fileID: 467396825}
+  - component: {fileID: 467396827}
   m_Layer: 0
   m_Name: humpback1
   m_TagString: Untagged
@@ -768,14 +769,14 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 4
-  MaxDistance: 50
+  MinDistance: 5
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -890,6 +891,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &467396827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467396819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde3955e0f54f45589b6190bf4027dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityAudio
+  PlayerCapsule: {fileID: 993890576}
+  maxDistance: 75
+  fadeSpeed: 1
 --- !u!1 &605137427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,6 +1422,7 @@ GameObject:
   - component: {fileID: 1784210064}
   - component: {fileID: 1784210071}
   - component: {fileID: 1784210070}
+  - component: {fileID: 1784210072}
   m_Layer: 0
   m_Name: pilot1
   m_TagString: Untagged
@@ -1436,8 +1453,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: b1c005a0590a541ad8b2c6e09e5d3cde, type: 3}
-  m_PlayOnAwake: 0
+  m_Resource: {fileID: 8300000, guid: 50a6dd05a56ae468884225b1fd55070a, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 0.26
   Loop: 1
@@ -1446,8 +1463,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0.07
-  MinDistance: 30
-  MaxDistance: 50
+  MinDistance: 5
+  MaxDistance: 30
   Pan2D: 0.14
   rolloffMode: 0
   BypassEffects: 0
@@ -1656,6 +1673,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1784210072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784210063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde3955e0f54f45589b6190bf4027dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityAudio
+  PlayerCapsule: {fileID: 993890576}
+  maxDistance: 75
+  fadeSpeed: 1
 --- !u!1 &2049098500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,7 +1716,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: e42e96a106ada468786c12db77ebc2e7, type: 3}
+  m_Resource: {fileID: 8300000, guid: f60c7e3520ce5441899e48eed224fb9c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.056
   m_Pitch: 1
@@ -1801,6 +1833,7 @@ GameObject:
   - component: {fileID: 2051692142}
   - component: {fileID: 2051692143}
   - component: {fileID: 2051692144}
+  - component: {fileID: 2051692145}
   m_Layer: 0
   m_Name: orca1
   m_TagString: Untagged
@@ -1913,8 +1946,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: b1c005a0590a541ad8b2c6e09e5d3cde, type: 3}
-  m_PlayOnAwake: 0
+  m_Resource: {fileID: 8300000, guid: 6dc93f0c7f96e4ddbb4bbf4fad3dadea, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 0.26
   Loop: 1
@@ -1923,8 +1956,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0.07
-  MinDistance: 30
-  MaxDistance: 50
+  MinDistance: 5
+  MaxDistance: 30
   Pan2D: 0.14
   rolloffMode: 0
   BypassEffects: 0
@@ -2051,6 +2084,76 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2051692145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051692136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde3955e0f54f45589b6190bf4027dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityAudio
+  PlayerCapsule: {fileID: 993890576}
+  maxDistance: 75
+  fadeSpeed: 1
+--- !u!1 &2143428634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143428636}
+  - component: {fileID: 2143428635}
+  m_Layer: 5
+  m_Name: HUDWhales
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2143428635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143428634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 4259c8790cfcf4fd09ae4362388b887b, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 0}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &2143428636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143428634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2066,3 +2169,4 @@ SceneRoots:
   - {fileID: 1784210069}
   - {fileID: 467396823}
   - {fileID: 2049098502}
+  - {fileID: 2143428636}
