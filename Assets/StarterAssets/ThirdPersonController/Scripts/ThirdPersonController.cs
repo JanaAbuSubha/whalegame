@@ -44,7 +44,7 @@ namespace StarterAssets
 
         [Space(10)]
         [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
-        public float JumpTimeout = 0.50f;
+        public float JumpTimeout = 0.025f;
 
         [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
         public float FallTimeout = 0.15f;
@@ -299,22 +299,21 @@ namespace StarterAssets
         {
             
 
-                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+                if (_input.jump)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity += -Mathf.Sqrt(JumpHeight);
+                    _verticalVelocity = +JumpHeight;
 
                     // update animator if using character
                 }
 
-                //jump timeout
-                if (_jumpTimeoutDelta >= 0.0f)
-                {
-                    _jumpTimeoutDelta -= Time.deltaTime;
-                }
+                // //jump timeout
+                // if (_jumpTimeoutDelta >= 0.0f)
+                // {
+                //     _jumpTimeoutDelta -= Time.deltaTime;
+                // }
             
             
-                //_input.jump = false;
 
         }
 
