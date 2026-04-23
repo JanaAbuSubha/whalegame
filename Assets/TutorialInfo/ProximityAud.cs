@@ -4,6 +4,8 @@
 // which is what we adjust here. Inspo: https://discussions.unity.com/t/change-variable-value-based-on-perceived-audio-volume/2567
 
 using UnityEngine;
+using TMPro;
+
 
 public class ProximityAudio : MonoBehaviour
 {
@@ -32,10 +34,13 @@ public class ProximityAudio : MonoBehaviour
         float distance = Vector3.Distance(transform.position, PlayerCapsule.position);
         float targetVolume = Mathf.Clamp01(1f - (distance / maxDistance));
 
-        // print to confirm 
-        Debug.Log(distance + "  "  + targetVolume );
-
         // actually makes the change in volume
         audioSource.volume = Mathf.Lerp(audioSource.volume, targetVolume, Time.deltaTime * fadeSpeed);
+        
+
+        // print to confirm 
+        Debug.Log(distance + "  " + targetVolume);
+
+
     }
 }
