@@ -47,6 +47,7 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float diveTime = 0f;
         private bool isDiving = false;
+        private float facing = 0f;
   
 
         // timeout deltatime
@@ -160,8 +161,8 @@ namespace StarterAssets
         {
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = 3.0f;
-            float accelerate = 0.25f;
-            float RotationSmoothTime = 0.25f;
+            float accelerate = 0.5f;
+            float RotationSmoothTime = 0.5f;
             //movement constants
 
 
@@ -208,23 +209,34 @@ namespace StarterAssets
                                   _mainCamera.transform.eulerAngles.y;
                 float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
                     RotationSmoothTime);
-                float facing = 0.0f;
                 // rotate to face input direction relative to camera position
                 if (inputDirection.x < 0)
                 {
                 //rotation = ClampAngle(rotation, 220, 300);
-                rotation = ClampAngle(
-                    Mathf.SmoothDampAngle(
-                        transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
-                    RotationSmoothTime),220,300);
-                    facing = 0;
+                rotation = Mathf.SmoothDampAngle(
+                    transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
+                    RotationSmoothTime);
+
+                    float currentFacing = facing;
+                    facing = Mathf.SmoothDampAngle(
+                    currentFacing, 0, ref _rotationVelocity,
+                    RotationSmoothTime);
                 }
                 else if(inputDirection.x>0){
-                    rotation = ClampAngle(
-                        Mathf.SmoothDampAngle(
-                            transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
-                    RotationSmoothTime),45,115);
-                    facing = 180;
+                    rotation = Mathf.SmoothDampAngle(
+                    transform.eulerAngles.y, ClampAngle(_targetRotation,60,120), ref _rotationVelocity,
+                    RotationSmoothTime);
+                    
+                    float currentFacing = facing;
+                    facing = Mathf.SmoothDampAngle(
+                    currentFacing, 180, ref _rotationVelocity,
+                    RotationSmoothTime);
+                    
+                }
+                else{
+                    Mathf.SmoothDampAngle(
+                    transform.eulerAngles.y, facing-90, ref _rotationVelocity,
+                    RotationSmoothTime);
                 }
                 
                 transform.rotation = Quaternion.Euler(0.0f, rotation, facing);
