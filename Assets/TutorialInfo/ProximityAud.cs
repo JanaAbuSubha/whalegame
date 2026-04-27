@@ -13,7 +13,7 @@ public class ProximityAudio : MonoBehaviour
     public Transform PlayerCapsule;  
 
     // maximum distance noise can be heard     
-    public float maxDistance = 50f; 
+    public float maxDistance = 10000f; 
     // tells you how should music fad3e
     public float fadeSpeed = 2f;  
 

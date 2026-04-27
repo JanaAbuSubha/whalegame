@@ -15,8 +15,9 @@ public class proximityWhale : MonoBehaviour
     public Transform bowheadWhale;
     public Transform narwhalWhale;
 
-    // whale notes
+    // whale note + whale image
     public OpenNotes notebookController;
+    public WhaleReveal whaleHUD;
 
     void Update()
     {
@@ -31,26 +32,31 @@ public class proximityWhale : MonoBehaviour
         // near whale or not
         bool isNearOrca = distanceOrca <= 20f;
         bool isNearPilot = distancePilot <= 20f;
-        bool isNearHumpback = distanceHumpback <= 5000f;
+        bool isNearHumpback = distanceHumpback <= 150f;
         bool isNearBowhead= distancebowhead <= 20f;
         bool isNearNarwhal= distanceNarwhal <= 20f;
 
 
      // update notebook
         if (isNearOrca)
-        {notebookController.UnlockNote(0);}
+        {notebookController.UnlockNote(0);
+         whaleHUD.ShowWhale(0);}
 
         else if (isNearPilot)
-        {notebookController.UnlockNote(1); }
+        {notebookController.UnlockNote(1);
+         whaleHUD.ShowWhale(1); }
 
         else if (isNearHumpback)
-        {notebookController.UnlockNote(2); }
+        {notebookController.UnlockNote(2); 
+         whaleHUD.ShowWhale(2);}
 
         else if (isNearBowhead)
-        {notebookController.UnlockNote(3); }
+        {notebookController.UnlockNote(3); 
+         whaleHUD.ShowWhale(3);}
 
         else if (isNearNarwhal)
-         {notebookController.UnlockNote(4);}
+         {notebookController.UnlockNote(4);
+          whaleHUD.ShowWhale(4);}
 
     }
 }
