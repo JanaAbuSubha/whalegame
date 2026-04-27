@@ -207,14 +207,18 @@ namespace StarterAssets
             {
                 _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
                                   _mainCamera.transform.eulerAngles.y;
+
                 float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
                     RotationSmoothTime);
-                // rotate to face input direction relative to camera position
-                if (inputDirection.x < 0)
-                {
-                //rotation = ClampAngle(rotation, 220, 300);
+
+
+            // rotate to face input direction relative to camera position
+                if (inputDirection.x < 0){
+                //if moving left, flip diver and smooth angle
                 rotation = Mathf.SmoothDampAngle(
-                    transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
+                    transform.eulerAngles.y, 
+                    _targetRotation, 
+                    ref _rotationVelocity,
                     RotationSmoothTime);
 
                     float currentFacing = facing;
@@ -223,8 +227,11 @@ namespace StarterAssets
                     RotationSmoothTime);
                 }
                 else if(inputDirection.x>0){
+                    //if moving right, flip diver and choose angle
                     rotation = Mathf.SmoothDampAngle(
-                    transform.eulerAngles.y, ClampAngle(_targetRotation,60,120), ref _rotationVelocity,
+                    transform.eulerAngles.y, 
+                    ClampAngle(_targetRotation,60,120), 
+                    ref _rotationVelocity,
                     RotationSmoothTime);
                     
                     float currentFacing = facing;
@@ -234,8 +241,11 @@ namespace StarterAssets
                     
                 }
                 else{
-                    Mathf.SmoothDampAngle(
-                    transform.eulerAngles.y, facing-90, ref _rotationVelocity,
+                    //otherwise, if input is vertical, rotation is 0 or 180
+                    rotation = Mathf.SmoothDampAngle(
+                    transform.eulerAngles.y, 
+                    facing-90, 
+                    ref _rotationVelocity,
                     RotationSmoothTime);
                 }
                 
@@ -262,9 +272,11 @@ namespace StarterAssets
                 //checks each frame to see if we should dive
                 if (_input.jump)
                 {
-                    _verticalVelocity = -2;
+                    _verticalVelocity = -1;
                     isDiving = true;
                 }
+
+
                 //resets after one second
                 if(isDiving){
 
