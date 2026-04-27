@@ -12,8 +12,8 @@ public class ProximityAudio : MonoBehaviour
     // swimmer position
     public Transform PlayerCapsule;  
 
-    // maximum distance noise can be hearc      
-    public float maxDistance = 20f; 
+    // maximum distance noise can be heard     
+    public float maxDistance = 50f; 
     // tells you how should music fad3e
     public float fadeSpeed = 2f;  
 
@@ -36,11 +36,6 @@ public class ProximityAudio : MonoBehaviour
 
         // actually makes the change in volume
         audioSource.volume = Mathf.Lerp(audioSource.volume, targetVolume, Time.deltaTime * fadeSpeed);
-        
-
-        // print to confirm 
-        Debug.Log(distance + "  " + targetVolume);
-
 
     }
 }
