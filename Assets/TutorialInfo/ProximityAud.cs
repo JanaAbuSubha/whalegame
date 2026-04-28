@@ -6,36 +6,30 @@
 using UnityEngine;
 using TMPro;
 
-
 public class ProximityAudio : MonoBehaviour
 {
     // swimmer position
     public Transform PlayerCapsule;  
-
     // maximum distance noise can be heard     
-    public float maxDistance = 10000f; 
+    public float maxDistance = 100f; 
     // tells you how should music fad3e
     public float fadeSpeed = 2f;  
-
     // the actual audio source 
     public AudioSource audioSource;
 
-    void Start()
-    {
+    void Start(){
         // start audio at 0, but do have it play at all times
         audioSource = GetComponent<AudioSource>();
         audioSource.volume = 0f; 
         audioSource.Play();
     }
 
-    void Update()
-    {
+    void Update(){
         // calculate volume and make it volume valid number (b/w 0 and 1)
         float distance = Vector3.Distance(transform.position, PlayerCapsule.position);
         float targetVolume = Mathf.Clamp01(1f - (distance / maxDistance));
 
         // actually makes the change in volume
         audioSource.volume = Mathf.Lerp(audioSource.volume, targetVolume, Time.deltaTime * fadeSpeed);
-
     }
 }
