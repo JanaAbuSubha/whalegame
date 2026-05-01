@@ -6,18 +6,16 @@ public class BubbleBehavior : MonoBehaviour
     public int rows = 2;
     public int totalFrames = 6;
     public float framesPerSecond = 10f;
-
-    public float startX = 0f;
-    public float startY = 0f;
-    public float startZ = 0f;
-    public float maxZ = 10f;
+    public float changeZ = 10f;
     public float moveDuration = 5f;
 
     private Renderer rend;
     private Material mat;
     private int currentFrame;
     private float timer;
-
+    private float startX;
+    private float startY;
+    private float startZ;
     private float movementTimer;
 
     void Start()
@@ -26,8 +24,10 @@ public class BubbleBehavior : MonoBehaviour
         mat = rend.material;
 
         mat.SetTextureScale("_BaseMap", new Vector2(1f / columns, 1f / rows));
-
-        transform.position = new Vector3(startX, startY, startZ);
+        
+        startX = transform.position.x;
+        startY = transform.position.y;
+        startZ = transform.position.z;
     }
 
     void Update()
@@ -43,7 +43,6 @@ public class BubbleBehavior : MonoBehaviour
         if (timer >= 1f / framesPerSecond)
         {
             timer -= 1f / framesPerSecond;
-
             currentFrame++;
 
             if (currentFrame >= totalFrames)
@@ -66,8 +65,8 @@ public class BubbleBehavior : MonoBehaviour
         movementTimer += Time.deltaTime;
 
         float progress = movementTimer / moveDuration;
-
-        float newZ = Mathf.Lerp(startZ, maxZ, progress);
+        
+        float newZ = Mathf.Lerp(startZ, startZ + changeZ, progress);
 
         transform.position = new Vector3(startX, startY, newZ);
 
