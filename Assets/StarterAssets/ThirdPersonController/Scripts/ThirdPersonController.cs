@@ -160,8 +160,8 @@ namespace StarterAssets
         private void Move()
         {
             // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = 3.0f;
-            float accelerate = 0.5f;
+            float targetSpeed = 10.0f;
+            float accelerate = 3f;
             float RotationSmoothTime = 0.5f;
             //movement constants
 
