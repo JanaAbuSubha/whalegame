@@ -48,6 +48,7 @@ namespace StarterAssets
         private float diveTime = 0f;
         private bool isDiving = false;
         private float facing = 0f;
+ 
   
 
         // timeout deltatime
@@ -161,8 +162,8 @@ namespace StarterAssets
         {
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = 10.0f;
-            float accelerate = 3f;
-            float RotationSmoothTime = 0.5f;
+            float accelerate = 0.95f;
+            float RotationSmoothTime = 0.9f;
             //movement constants
 
 
@@ -200,11 +201,13 @@ namespace StarterAssets
 
             // normalise input direction
             Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
-
+          
             // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is a move input rotate player when the player is moving
             if (_input.move != Vector2.zero)
             {
+            
+
                 _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
                                   _mainCamera.transform.eulerAngles.y;
 
@@ -213,42 +216,26 @@ namespace StarterAssets
 
 
             // rotate to face input direction relative to camera position
-                if (inputDirection.x < 0){
-                //if moving left, flip diver and smooth angle
+                if (inputDirection.x < 0) 
+                {
+
+                //sets value to flip sprite if input is away from diver's head
+                facing = 0;
+
+                }
+                else if(inputDirection.x>0) 
+                {
+                //otherwise maintain the default y axis flip
+                facing = 180;
+                       
+                }
                 rotation = Mathf.SmoothDampAngle(
                     transform.eulerAngles.y, 
                     _targetRotation, 
                     ref _rotationVelocity,
                     RotationSmoothTime);
 
-                    float currentFacing = facing;
-                    facing = Mathf.SmoothDampAngle(
-                    currentFacing, 0, ref _rotationVelocity,
-                    RotationSmoothTime);
-                }
-                else if(inputDirection.x>0){
-                    //if moving right, flip diver and choose angle
-                    rotation = Mathf.SmoothDampAngle(
-                    transform.eulerAngles.y, 
-                    ClampAngle(_targetRotation,60,120), 
-                    ref _rotationVelocity,
-                    RotationSmoothTime);
-                    
-                    float currentFacing = facing;
-                    facing = Mathf.SmoothDampAngle(
-                    currentFacing, 180, ref _rotationVelocity,
-                    RotationSmoothTime);
-                    
-                }
-                else{
-                    //otherwise, if input is vertical, rotation is 0 or 180
-                    rotation = Mathf.SmoothDampAngle(
-                    transform.eulerAngles.y, 
-                    facing-90, 
-                    ref _rotationVelocity,
-                    RotationSmoothTime);
-                }
-                
+               //rotate the sprite, and flip sprite 
                 transform.rotation = Quaternion.Euler(0.0f, rotation, facing);
             }
 
@@ -266,33 +253,29 @@ namespace StarterAssets
             }
         }
 
-        private void Dive()
+         private void Dive()
         {
             
-                //checks each frame to see if we should dive
-                if (_input.jump)
-                {
-                    _verticalVelocity = -1;
-                    isDiving = true;
+                //sets vertical velocity to 0 if dive flags were not set by Unity PlayerInput
+                _verticalVelocity = 0;
+
+
+                if (_input.diveDown) {
+                    //moving "deep" into the screen on lShift
+                    _verticalVelocity = -2;
+                    
+            
+                }
+
+                if(_input.diveUp) { 
+
+                    //moving "out" of the screen on space
+
+                    _verticalVelocity = 2;
+
                 }
 
 
-                //resets after one second
-                if(isDiving){
-
-                    diveTime += Time.deltaTime;
-
-                    if(diveTime > 1.0f)
-                        _verticalVelocity = 0;
-                        isDiving = false;
-
-                    }
-            
-
-                
-
-                
-            
 
         }
 
