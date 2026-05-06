@@ -10,8 +10,8 @@ namespace StarterAssets
 		[Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
-		public bool jump;
-		public bool sprint;
+		public bool diveDown;
+		public bool diveUp;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -36,12 +36,12 @@ namespace StarterAssets
 
 		public void OnJump(InputValue value)
 		{
-			JumpInput(value.isPressed);
+			DiveUpInput(value.isPressed);
 		}
 
 		public void OnSprint(InputValue value)
 		{
-			SprintInput(value.isPressed);
+			DiveDownInput(value.isPressed);
 		}
 #endif
 
@@ -56,14 +56,14 @@ namespace StarterAssets
 			look = newLookDirection;
 		}
 
-		public void JumpInput(bool newJumpState)
+		public void DiveUpInput(bool newDiveUpState)
 		{
-			jump = newJumpState;
+			diveUp = newDiveUpState;
 		}
 
-		public void SprintInput(bool newSprintState)
+		public void DiveDownInput(bool newDiveDownState)
 		{
-			sprint = newSprintState;
+			diveDown = newDiveDownState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)
