@@ -18,7 +18,7 @@ public class proximityWhale : MonoBehaviour
     public WhaleReveal whaleHUD;
 
     // meter distance
-    public float proximityMeters = 21f;
+    public float proximityMeters = 2f;
 
     void Update()
     {

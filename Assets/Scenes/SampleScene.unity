@@ -8868,8 +8868,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProximityAudio
   PlayerCapsule: {fileID: 993890576}
-  maxDistance: 50
-  fadeSpeed: 2
+  maxDistance: 70
+  fadeSpeed: 0.8
   audioSource: {fileID: 467396824}
 --- !u!1 &468344358
 GameObject:
@@ -31610,8 +31610,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   PlayerCapsule: {fileID: 993890576}
-  maxDistance: 50
-  fadeSpeed: 2
+  maxDistance: 70
+  fadeSpeed: 0.8
   audioSource: {fileID: 1480885644}
 --- !u!82 &1480885644
 AudioSource:
@@ -31626,7 +31626,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 518d32b52ddaa43c0b0e2dca1128d945, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.92
   m_Pitch: 0.26
   Loop: 1
   Mute: 0
@@ -34425,8 +34425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   PlayerCapsule: {fileID: 993890576}
-  maxDistance: 50
-  fadeSpeed: 2
+  maxDistance: 70
+  fadeSpeed: 0.8
   audioSource: {fileID: 1662097367}
 --- !u!82 &1662097367
 AudioSource:
@@ -37138,8 +37138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   PlayerCapsule: {fileID: 993890576}
-  maxDistance: 50
-  fadeSpeed: 2
+  maxDistance: 70
+  fadeSpeed: 0.8
   audioSource: {fileID: 1784210065}
 --- !u!82 &1784210065
 AudioSource:
@@ -41991,7 +41991,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f6f985c7ffc104eb3b93b6be8a3ab8ea, type: 3}
+  m_Resource: {fileID: 8300000, guid: 4c80da1c46d224a5faf33d92f67a5312, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.073
   m_Pitch: 1
@@ -42317,8 +42317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   PlayerCapsule: {fileID: 993890576}
-  maxDistance: 50
-  fadeSpeed: 2
+  maxDistance: 70
+  fadeSpeed: 0.8
   audioSource: {fileID: 2051692141}
 --- !u!1 &2055285042
 GameObject:
