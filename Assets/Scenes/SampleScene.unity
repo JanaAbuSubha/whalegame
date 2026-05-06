@@ -41446,7 +41446,7 @@ MonoBehaviour:
   narwhalWhale: {fileID: 532960596}
   notebookController: {fileID: 555729529}
   whaleHUD: {fileID: 854747062}
-  proximityMeters: 20
+  proximityMeters: 5
 --- !u!1 &2014609090
 GameObject:
   m_ObjectHideFlags: 0
