@@ -1,3 +1,5 @@
+// Update aspects of game if the swimmer is  near a whale
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,13 +15,18 @@ public class proximityWhale : MonoBehaviour
     public Transform bowheadWhale;
     public Transform narwhalWhale;
 
-    // whale note + whale image
+    // whales note + whale image
     public OpenNotes notebookController;
     public WhaleReveal whaleHUD;
 
     // meter distance
     public float proximityMeters = 0.05f;
 
+
+    // Audio
+    public AudioSource whaleFoundAlarm;
+    public bool alarmPlayed = false;
+    
     void Update()
     {
         // calculate volume and make it volume valid number (b/w 0 and 1)
@@ -36,22 +43,31 @@ public class proximityWhale : MonoBehaviour
         bool isNearBowhead= distancebowhead <= proximityMeters;
         bool isNearNarwhal= distanceNarwhal <= proximityMeters;
 
-        // update notebook
+        // update notebook &  audio
         if (isNearOrca){
             notebookController.UnlockNote(0);
             whaleHUD.ShowWhale(0);
+            if (!alarmPlayed) { whaleFoundAlarm.Play(); alarmPlayed = true; }
         }if (isNearPilot){
             notebookController.UnlockNote(1);
              whaleHUD.ShowWhale(1);
+            if (!alarmPlayed) { whaleFoundAlarm.Play(); alarmPlayed = true; }
         }if (isNearHumpback){
             notebookController.UnlockNote(2); 
             whaleHUD.ShowWhale(2);
+            if (!alarmPlayed) { whaleFoundAlarm.Play(); alarmPlayed = true; }
         }if (isNearBowhead){
             notebookController.UnlockNote(3); 
             whaleHUD.ShowWhale(3);
+            if (!alarmPlayed) { whaleFoundAlarm.Play(); alarmPlayed = true; }
+
         }if (isNearNarwhal){
             notebookController.UnlockNote(4);
             whaleHUD.ShowWhale(4);
+            if (!alarmPlayed) { whaleFoundAlarm.Play(); alarmPlayed = true; }
+
+        } if (!isNearOrca && !isNearPilot && !isNearHumpback && !isNearBowhead && !isNearNarwhal) {
+            alarmPlayed = false;
         }
     }
 }

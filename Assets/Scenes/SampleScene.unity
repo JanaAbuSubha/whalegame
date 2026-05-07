@@ -8757,19 +8757,19 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: b1c005a0590a541ad8b2c6e09e5d3cde, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 256
   DopplerLevel: 1
-  MinDistance: 4
-  MaxDistance: 50
+  MinDistance: 1
+  MaxDistance: 70
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -8832,7 +8832,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10683,7 +10683,6 @@ GameObject:
   - component: {fileID: 532960596}
   - component: {fileID: 532960595}
   - component: {fileID: 532960594}
-  - component: {fileID: 532960597}
   m_Layer: 0
   m_Name: narwhalpar
   m_TagString: Untagged
@@ -10748,27 +10747,6 @@ Transform:
   - {fileID: 1662097365}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &532960597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532960593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5082f9def4fa462a851ebabba179866, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::proximityWhale
-  PlayerCapsule: {fileID: 0}
-  orcaWhale: {fileID: 0}
-  pilotWhale: {fileID: 0}
-  humpackWhale: {fileID: 0}
-  bowheadWhale: {fileID: 0}
-  narwhalWhale: {fileID: 0}
-  notebookController: {fileID: 0}
-  whaleHUD: {fileID: 0}
-  proximityMeters: 21
 --- !u!1 &538029673
 GameObject:
   m_ObjectHideFlags: 0
@@ -17602,6 +17580,139 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893616104}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &896637291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 896637293}
+  - component: {fileID: 896637292}
+  m_Layer: 5
+  m_Name: AudWhaleFound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &896637292
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896637291}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: a4da6f6747b0a4a7c903f6acd49c9d7d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 5
+  MinDistance: 1
+  MaxDistance: 6
+  Pan2D: 0.09
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!224 &896637293
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896637291}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1976619196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -299.99997, y: -130.00003}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &902220220
 GameObject:
   m_ObjectHideFlags: 0
@@ -31612,19 +31723,19 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 518d32b52ddaa43c0b0e2dca1128d945, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.92
   m_Pitch: 0.26
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 91
   DopplerLevel: 0.07
-  MinDistance: 30
-  MaxDistance: 50
+  MinDistance: 1
+  MaxDistance: 70
   Pan2D: 0.14
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -33271,7 +33382,7 @@ GameObject:
   - component: {fileID: 1593921172}
   - component: {fileID: 1593921171}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33293,7 +33404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -130, y: -610}
+  m_AnchoredPosition: {x: -140, y: -610}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1593921171
@@ -33318,8 +33429,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Whale Notes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33349,7 +33460,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 5
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -34376,7 +34487,6 @@ GameObject:
   - component: {fileID: 1662097369}
   - component: {fileID: 1662097368}
   - component: {fileID: 1662097367}
-  - component: {fileID: 1662097366}
   m_Layer: 0
   m_Name: narwhal
   m_TagString: Untagged
@@ -34399,22 +34509,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 532960596}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1662097366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662097364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde3955e0f54f45589b6190bf4027dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  PlayerCapsule: {fileID: 993890576}
-  maxDistance: 70
-  fadeSpeed: 0.8
-  audioSource: {fileID: 1662097367}
 --- !u!82 &1662097367
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34427,19 +34521,19 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 361b38bb54fc5406c9bf7aa06e042160, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0.26
+  m_Pitch: 3
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 111
   DopplerLevel: 0.07
-  MinDistance: 30
-  MaxDistance: 50
-  Pan2D: 0.14
-  rolloffMode: 0
+  MinDistance: 1
+  MaxDistance: 70
+  Pan2D: 1
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -34487,7 +34581,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.7416667
+      value: 0.9027778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -37104,7 +37198,6 @@ GameObject:
   - component: {fileID: 1784210067}
   - component: {fileID: 1784210066}
   - component: {fileID: 1784210065}
-  - component: {fileID: 1784210064}
   m_Layer: 0
   m_Name: pilot1
   m_TagString: Untagged
@@ -37112,22 +37205,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1784210064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784210063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde3955e0f54f45589b6190bf4027dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  PlayerCapsule: {fileID: 993890576}
-  maxDistance: 70
-  fadeSpeed: 0.8
-  audioSource: {fileID: 1784210065}
 --- !u!82 &1784210065
 AudioSource:
   m_ObjectHideFlags: 0
@@ -37140,19 +37217,19 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 50a6dd05a56ae468884225b1fd55070a, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 0.26
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 37
+  Priority: 134
   DopplerLevel: 0.07
-  MinDistance: 30
-  MaxDistance: 50
+  MinDistance: 1
+  MaxDistance: 70
   Pan2D: 0.14
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -39574,7 +39651,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -200, y: -600}
-  m_SizeDelta: {x: 150, y: 150}
+  m_SizeDelta: {x: 130, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1938852214
 MonoBehaviour:
@@ -39807,7 +39884,7 @@ GameObject:
   - component: {fileID: 1944236945}
   - component: {fileID: 1944236944}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Text2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39854,15 +39931,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Tab
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
-  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285621574
-  m_fontColor: {r: 0.2739854, g: 0.39686114, b: 0.4433962, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -40869,6 +40946,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 896637293}
   - {fileID: 1377357083}
   - {fileID: 555729528}
   - {fileID: 1921205443}
@@ -41434,6 +41512,8 @@ MonoBehaviour:
   notebookController: {fileID: 555729529}
   whaleHUD: {fileID: 854747062}
   proximityMeters: 8
+  whaleFoundAlarm: {fileID: 896637292}
+  alarmPlayed: 0
 --- !u!1 &2014609090
 GameObject:
   m_ObjectHideFlags: 0
@@ -42092,7 +42172,6 @@ GameObject:
   - component: {fileID: 2051692138}
   - component: {fileID: 2051692137}
   - component: {fileID: 2051692141}
-  - component: {fileID: 2051692142}
   m_Layer: 0
   m_Name: orca1
   m_TagString: Untagged
@@ -42206,19 +42285,19 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6dc93f0c7f96e4ddbb4bbf4fad3dadea, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 0.26
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 124
   DopplerLevel: 0.07
-  MinDistance: 30
-  MaxDistance: 50
+  MinDistance: 1
+  MaxDistance: 70
   Pan2D: 0.14
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -42291,22 +42370,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2051692142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051692136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde3955e0f54f45589b6190bf4027dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  PlayerCapsule: {fileID: 993890576}
-  maxDistance: 70
-  fadeSpeed: 0.8
-  audioSource: {fileID: 2051692141}
 --- !u!1 &2055285042
 GameObject:
   m_ObjectHideFlags: 0
@@ -43990,7 +44053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2136719246
 RectTransform:
   m_ObjectHideFlags: 0
