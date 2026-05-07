@@ -16,6 +16,7 @@ public class WhaleMovement : MonoBehaviour
 	CharacterController controller;
 	float heading;
 	Vector3 targetRotation;
+	float lastBoundaryTurnTime = -1f;
 
 	///
 	/// Called once at runtime, sets up controller, initial rotation, and calls method which continues movement
@@ -26,6 +27,7 @@ public class WhaleMovement : MonoBehaviour
 		StartCoroutine(NewHeading());
 
 	}
+
 	///
 	/// Called every frame, updates rotation of whale using Slerp method which interpolates for smooth movement, moves whale incrementally towards the target, 
 	/// and flips the sprite according to the direction of x motion 
@@ -34,13 +36,32 @@ public class WhaleMovement : MonoBehaviour
 		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(targetRotation), Time.deltaTime * directionChangeInterval);
 		var forward = transform.TransformDirection(Vector3.right);
         controller.Move(forward * speed * Time.deltaTime);
-		if (controller.velocity.sqrMagnitude > 0.0001f)
-    		spriteTransform.localRotation = Quaternion.Euler(controller.velocity.x < 0f ? 180f : 0f, 180f, 180f);
+
+		// limited boundaries for clearer demo 
+		if (transform.position.z < -45f){
+			transform.position = new Vector3(transform.position.x, transform.position.y, -45f);
+			NewHorizontal();
+		}
+		if (transform.position.z > 10f){
+			transform.position = new Vector3(transform.position.x, transform.position.y, 10f);
+			NewHorizontal();
+		}
+		if (transform.position.x < -50f){
+			transform.position = new Vector3(-50f, transform.position.y, transform.position.z);
+			targetRotation = new Vector3(0f, 0f, 0f);
+		}
+		if (transform.position.x > 50f){
+			transform.position = new Vector3(50f, transform.position.y, transform.position.z);
+			targetRotation = new Vector3(0f, 180f, 0f);
+		}
 		
+		if (controller.velocity.sqrMagnitude > 0.0001f){
+    		spriteTransform.localRotation = Quaternion.Euler(controller.velocity.x < 0f ? 180f : 0f, 180f, 180f);
+		}
 	}
 
 	///
-	/// Calculates a new direction to move towardds depending on the current direction of travel. 
+	/// Calculates a new direction to move towards depending on the current direction of travel. 
 	/// Whales which are traveling horizontally change to a diagonal movement, and vice versa. 
 	/// 
 	IEnumerator NewHeading(){
@@ -92,12 +113,31 @@ public class WhaleMovement : MonoBehaviour
 		targetRotation = directions[Random.Range(0, directions.Count)];
 
 	}
+
 	///
 	/// Helper method called by NewHeading() which chooses between two horizontal vector directions and assigns one to be target. 
 	/// 
 	void NewHorizontal(){
 		float leftorright = controller.velocity.x;
 		targetRotation = new Vector3(0f, leftorright < 0 ? 180f : 0f, 0f);
+	}
+
+	///
+	/// Adapted OnControllerColliderHit method which makes whales move in the opposite vector as their original upon collision with Boundaries 
+	/// 
+	void OnControllerColliderHit(ControllerColliderHit hit)
+	{
+		if (hit.collider.CompareTag("Boundary") && Time.time - lastBoundaryTurnTime > 0.3f)
+		{
+			targetRotation = new Vector3(
+				(360f - targetRotation.x) % 360f,
+				(targetRotation.y + 180f) % 360f,
+				targetRotation.z
+			);
+
+			transform.rotation = Quaternion.Euler(targetRotation);
+			lastBoundaryTurnTime = Time.time;
+		}
 	}
 
 }

@@ -1,5 +1,9 @@
 using UnityEngine;
-
+///
+/// Creates movement, fading, and animation behaviour for a Fish plane  
+/// By Jana Abu Subha 
+/// 5/1/2026
+/// 
 public class FishBehavior : MonoBehaviour
 {
     [Header("Animation Settings")]
@@ -20,13 +24,16 @@ public class FishBehavior : MonoBehaviour
     private Material mat;
     private int currentFrame;
     private float timer;
-
     private float movementTimer;
-
     private float startX;
     private float startY;
     private float startZ;
 
+    ///
+    /// Runs once at runtime, gets the renderer and material from the fish plane.
+    /// Sets up the sprite sheet scale, saves the starting position,
+    /// and makes the fish invisible at the beginning.
+    /// 
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -40,7 +47,9 @@ public class FishBehavior : MonoBehaviour
 
         SetOpacity(0f);
     }
-
+    /// 
+    /// Runs every frame. Updates the fish animation, movement, and opacity.
+    /// 
     void Update()
     {
         AnimateSpriteSheet();
@@ -48,6 +57,10 @@ public class FishBehavior : MonoBehaviour
         UpdateOpacity();
     }
 
+    ///
+    /// Animates the fish by switching between frames in the sprite sheet
+    /// based on the frames per second value.
+    /// 
     void AnimateSpriteSheet()
     {
         timer += Time.deltaTime;
@@ -73,6 +86,11 @@ public class FishBehavior : MonoBehaviour
         }
     }
 
+    ///
+    /// Moves the fish from its starting x-position to the target x-position.
+    /// When the movement is finished, it resets the fish back to the start
+    /// and makes it invisible again.
+    /// 
     void MovePlane()
     {
         movementTimer += Time.deltaTime;
@@ -91,6 +109,11 @@ public class FishBehavior : MonoBehaviour
         }
     }
 
+    ///
+    /// Controls the fade in and fade out effect.
+    /// The fish fades in at the start, stays visible in the middle,
+    /// and fades out near the end.
+    /// 
     void UpdateOpacity()
     {
         float opacity = 1f;
@@ -113,6 +136,10 @@ public class FishBehavior : MonoBehaviour
         SetOpacity(opacity);
     }
 
+    /// 
+    /// Changes the transparency of the fish material.
+    /// 0 means fully invisible, and 1 means fully visible.
+    /// 
     void SetOpacity(float opacity)
     {
         Color color = mat.color;
