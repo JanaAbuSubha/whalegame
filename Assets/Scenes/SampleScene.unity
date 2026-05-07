@@ -8527,10 +8527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde3955e0f54f45589b6190bf4027dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProximityAudio
-  PlayerCapsule: {fileID: 993890576}
-  maxDistance: 70
-  fadeSpeed: 0.8
-  audioSource: {fileID: 467396824}
 --- !u!1 &468344358
 GameObject:
   m_ObjectHideFlags: 0
@@ -17285,14 +17281,14 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 0
   DopplerLevel: 5
   MinDistance: 1
-  MaxDistance: 6
+  MaxDistance: 2
   Pan2D: 0.09
   rolloffMode: 1
   BypassEffects: 0
@@ -31162,10 +31158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde3955e0f54f45589b6190bf4027dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  PlayerCapsule: {fileID: 993890576}
-  maxDistance: 70
-  fadeSpeed: 0.8
-  audioSource: {fileID: 1480885644}
 --- !u!82 &1480885644
 AudioSource:
   m_ObjectHideFlags: 0
