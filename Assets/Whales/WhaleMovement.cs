@@ -42,15 +42,15 @@ public class WhaleMovement : MonoBehaviour
 			transform.position = new Vector3(transform.position.x, transform.position.y, -45f);
 			NewHorizontal();
 		}
-		if (transform.position.z > 10f){
-			transform.position = new Vector3(transform.position.x, transform.position.y, 10f);
-			NewHorizontal();
-		}
-		if (transform.position.x < -50f){
+		// if (transform.position.z > 10f){
+		// 	transform.position = new Vector3(transform.position.x, transform.position.y, 10f);
+		// 	NewHorizontal();
+		//}
+		if (transform.position.x < -60f){
 			transform.position = new Vector3(-50f, transform.position.y, transform.position.z);
 			targetRotation = new Vector3(0f, 0f, 0f);
 		}
-		if (transform.position.x > 50f){
+		if (transform.position.x > 60f){
 			transform.position = new Vector3(50f, transform.position.y, transform.position.z);
 			targetRotation = new Vector3(0f, 180f, 0f);
 		}
