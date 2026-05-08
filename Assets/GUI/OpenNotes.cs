@@ -5,11 +5,11 @@ using UnityEngine.InputSystem; // was getting errors for using another version o
 public class OpenNotes : MonoBehaviour
 {
 
-  public GameObject popupPanel;
+  public GameObject noteBook; // blank notebook
   private bool tabOpen = false; // at first the tab is closed
 
-  public GameObject[] whaleNoteSlots;
-  private bool[] unlockedNote = new bool[5];
+  public GameObject[] whaleNoteSlots; // whale notes/information
+  private bool[] unlockedNote = new bool[5]; // there are 5 whales
 
 
 // start without any whale notes - blank notebook
@@ -21,17 +21,17 @@ public class OpenNotes : MonoBehaviour
 // open notebook when key is pressed
     void Update() {
         // when tab key is pressed open the tab
-         if (Keyboard.current.tabKey.wasPressedThisFrame){
+        if (Keyboard.current.tabKey.wasPressedThisFrame){
             tabOpen = !tabOpen;
-            popupPanel.SetActive(tabOpen);
+            noteBook.SetActive(tabOpen);
         }  
     }
 
 // unlocking notes  
 public void UnlockNote(int index) {
     if (unlockedNote[index]) return; 
-    unlockedNote[index] = true;
-    whaleNoteSlots[index].SetActive(true); 
+        unlockedNote[index] = true;
+        whaleNoteSlots[index].SetActive(true); 
 }
 }
 

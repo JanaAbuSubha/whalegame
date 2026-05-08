@@ -8,20 +8,19 @@ public class proximityWhale : MonoBehaviour
     // swimmer position
     public Transform PlayerCapsule;  
 
-    // whales
+    // whales - user inputs into the slots
     public Transform orcaWhale;
     public Transform pilotWhale;
     public Transform humpackWhale;
     public Transform bowheadWhale;
     public Transform narwhalWhale;
 
-    // whales note + whale image
+    // whales note + whale image - come from other scripts
     public OpenNotes notebookController;
     public WhaleReveal whaleHUD;
 
     // meter distance
     public float proximityMeters = 0.05f;
-
 
     // Audio
     public AudioSource whaleFoundAlarm;
