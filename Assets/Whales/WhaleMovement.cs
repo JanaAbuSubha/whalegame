@@ -37,23 +37,24 @@ public class WhaleMovement : MonoBehaviour
 		var forward = transform.TransformDirection(Vector3.right);
         controller.Move(forward * speed * Time.deltaTime);
 
-		// limited boundaries for clearer demo 
 		if (transform.position.z < -45f){
 			transform.position = new Vector3(transform.position.x, transform.position.y, -45f);
 			NewHorizontal();
 		}
-		// if (transform.position.z > 10f){
-		// 	transform.position = new Vector3(transform.position.x, transform.position.y, 10f);
-		// 	NewHorizontal();
-		//}
-		if (transform.position.x < -60f){
-			transform.position = new Vector3(-50f, transform.position.y, transform.position.z);
-			targetRotation = new Vector3(0f, 0f, 0f);
-		}
-		if (transform.position.x > 60f){
-			transform.position = new Vector3(50f, transform.position.y, transform.position.z);
-			targetRotation = new Vector3(0f, 180f, 0f);
-		}
+
+		// other limited boundaries for clearer demo 
+		// // if (transform.position.z > 10f){
+		// // 	transform.position = new Vector3(transform.position.x, transform.position.y, 10f);
+		// // 	NewHorizontal();
+		// //}
+		// if (transform.position.x < -60f){
+		// 	transform.position = new Vector3(-50f, transform.position.y, transform.position.z);
+		// 	targetRotation = new Vector3(0f, 0f, 0f);
+		// }
+		// if (transform.position.x > 60f){
+		// 	transform.position = new Vector3(50f, transform.position.y, transform.position.z);
+		// 	targetRotation = new Vector3(0f, 180f, 0f);
+		// }
 		
 		if (controller.velocity.sqrMagnitude > 0.0001f){
     		spriteTransform.localRotation = Quaternion.Euler(controller.velocity.x < 0f ? 180f : 0f, 180f, 180f);
